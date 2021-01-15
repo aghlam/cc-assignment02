@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import GoogleMapReact from 'google-map-react';
-import SearchBox from './SearchBox'
+import LocationSearchBox from './LocationSearchBox';
 import './GMap.css'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -13,9 +13,6 @@ class GMap extends Component {
     },
     zoom: 11
   };
- 
-//Put as a child of <GoogleMapReact>
-//<SearchBox placeholder={"23 Biggs Street"} onPlacesChanged={this.handleSearch} />
 
   render() {
     return (
@@ -31,13 +28,13 @@ class GMap extends Component {
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
                 >
-
                 <AnyReactComponent
                     lat={-37.840935}
                     lng={144.946457}
                     text="My Marker"
                 />
                 </GoogleMapReact>
+                <LocationSearchBox></LocationSearchBox>
             </div>
         </Fragment>
       
