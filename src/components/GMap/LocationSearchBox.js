@@ -4,11 +4,6 @@
 import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 
-/**
- * TODO: Somehow enforce 'cafe' (and more) types in search.
- * Unfortunately, autocomplete does not allow more specific types, 
- * so likely it will have to be somehow done in the 'autocomplete-dropdown-container' section.
- */
 const searchOptions = {
     location: new window.google.maps.LatLng(-37.840935,144.946457),
     radius: 2000,
@@ -66,6 +61,15 @@ class LocationSearchBox extends Component {
                         const style = suggestion.active
                         ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                         : { backgroundColor: '#ffffff', cursor: 'pointer' };
+
+                        suggestion.isCafe = false;
+
+                        for (var i = 0; i < suggestion.types.length; i++) {
+                            if (suggestion.types[i] === 'cafe') {
+                                suggestion.isCafe = true;
+                            }
+                        }
+
                         return (
                         <div
                             {...getSuggestionItemProps(suggestion, {
@@ -73,7 +77,7 @@ class LocationSearchBox extends Component {
                             style,
                             })}
                         >
-                            <span>{suggestion.description}</span>
+                            {suggestion.isCafe === true && <span>{suggestion.description}</span>}
                         </div>
                         );
                     })}
