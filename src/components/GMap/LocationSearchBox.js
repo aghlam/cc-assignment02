@@ -13,7 +13,9 @@ const searchOptions = {
 class LocationSearchBox extends Component {
     constructor(props) {
         super(props);
-        this.state = { address: '' };
+        this.state = {
+            address: '',
+        };
     }
 
     handleChange = address => {
@@ -21,18 +23,16 @@ class LocationSearchBox extends Component {
     };
 
     handleSelect = (address: string, placeId: ?string, suggestion: ?object) => {
-        /**
-         * TODO Somehow send this information to like a global storage or something, so that if a user
-         * decides to rate/review a place, it'll either bring up or create a new databse entry 
-         * of said location, to be able to review it and save it to the databse.
-         */
-        console.log('success address:', address);
-        console.log('success id', placeId);
-        console.log('success object', suggestion);
+        //Placing both the { lat, lng } AND placeId of the selected location into local storage
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
-            .then(latLng => console.log('success', latLng))
+            .then(latLng => {localStorage.setItem('currentPos', JSON.stringify(latLng))})
             .catch(error => console.error('Error:', error));
+        localStorage.setItem('placeID', placeId);
+        
+        //Adding/updating area just under "Cafe Map" to display what address you have selected
+        var selectionMessage = "Selected cafe is: " + address;
+        document.getElementById('currentPlaceID').innerHTML = selectionMessage;
     };
 
     render() {
@@ -57,7 +57,6 @@ class LocationSearchBox extends Component {
                         const className = suggestion.active
                         ? 'suggestion-item--active'
                         : 'suggestion-item';
-                        // inline style for demonstration purpose
                         const style = suggestion.active
                         ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                         : { backgroundColor: '#ffffff', cursor: 'pointer' };
