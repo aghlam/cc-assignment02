@@ -3,10 +3,14 @@ import { useGoogleLogout } from 'react-google-login';
 
 const clientId = '927460782630-si9oujoue6sd7rhlm546cai5e38g5sct.apps.googleusercontent.com'
 
-function LogoutHooks() {
+const LogoutHooks = () => {
+
   const onLogoutSuccess = (response) => {
     console.log('Logged out Success')
     alert('Logged out Successfully')
+    localStorage.removeItem('googleUser')
+    localStorage.removeItem('isSignedIn')
+    window.location.reload();
   }
 
   const onFailure = () => {
@@ -20,8 +24,8 @@ function LogoutHooks() {
   })
 
   return (
-    <button onClick={signOut} className="button">
-      <img src="icons/google.svg" alt="google login" className="icon"></img>
+    <button type='button' class="btn btn-outline-light" onClick={signOut}>
+      <img src="icons/google.svg" height='40' width='40' alt="google login" className="icon"></img>
       <span className="buttonText">Sign out</span>
     </button>
   )
