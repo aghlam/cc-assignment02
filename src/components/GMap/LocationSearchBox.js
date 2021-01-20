@@ -1,11 +1,11 @@
-//Most of this code can be attributed to the below citation.
+//Some of this code can be attributed to the below citation.
 //[1]K. Hibino, "react-places-autocomplete", npm, 2020. [Online]. Available: https://www.npmjs.com/package/react-places-autocomplete. [Accessed: 15- Jan- 2021].
 
 import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 
 const searchOptions = {
-    location: new window.google.maps.LatLng(-37.840935,144.946457),
+    location: new window.google.maps.LatLng(-37.815570,144.962960),
     radius: 2000,
     types: ['establishment']
 }
@@ -33,6 +33,9 @@ class LocationSearchBox extends Component {
         //Adding/updating area just under "Cafe Map" to display what address you have selected
         var selectionMessage = "Selected cafe is: " + address;
         document.getElementById('currentPlaceID').innerHTML = selectionMessage;
+
+        //Then moving the lat/lng location from the parent component GMap, hence moving the map.
+        this.props.moveMap();
     };
 
     render() {
@@ -40,7 +43,7 @@ class LocationSearchBox extends Component {
             <PlacesAutocomplete
                 value={this.state.address}
                 onChange={this.handleChange}
-                onSelect={this.handleSelect}
+                onSelect={this.handleSelect.bind(this)}
                 searchOptions={searchOptions}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (

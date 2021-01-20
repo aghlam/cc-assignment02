@@ -3,24 +3,26 @@ import GoogleMapReact from 'google-map-react';
 import LocationSearchBox from './LocationSearchBox';
 import './GMap.css'
 
-const LatLngMarker = ({ text }) => <div>{text}</div>; 
+//DEPRECIATED MARKER + HTML (As child of GoogleMapReact) BELOW
+//const LatLngMarker = ({ text }) => <div>{text}</div>; 
+// <LatLngMarker
+// lat={this.state.currentCenter.lat}
+// lng={this.state.currentCenter.lng}
+// text="Next Location!"
+// />
 
 class GMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentCenter: {
-        lat: -37.840935,
-        lng: 144.946457
+        lat: -37.815570,
+        lng: 144.962960
       }
     };
   }
 
-  /**
-   * Updates this.state.currentCenter, which then moves the map. PLS FIX THIS AT SOME POINT CUZ IDK
-   * HOW TO MAKE IT AUTOMATIC WHEN U CLICK ON AN ADDRESS ;-;
-   */
-  handleClick() {
+  moveMap = () => {
     this.setState(prevState => ({
       currentCenter: {
         ...prevState.currentCenter,
@@ -32,8 +34,8 @@ class GMap extends Component {
 
   static defaultProps = {
     center: {
-      lat: -37.840935,
-      lng: 144.946457
+      lat: -37.815570,
+      lng: 144.962960
     },
     zoom: 11
   };
@@ -46,25 +48,25 @@ class GMap extends Component {
                 <p id="currentPlaceID"></p>
             </div>
 
-            <div id="map" onLoad={this.handeLoad}>
+            <div id="map">
                 <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyBr0tSPg4hwyEsxxhrRoNuBMFeLh8TQSHU',
                                     libraries: 'places' }}
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
-                center={this.state.currentCenter}
-                onClick={this.handleClick.bind(this)} //Change this soon to something that happens with onSelect in LocationSearchBox.js
-                >
-                <LatLngMarker
-                    lat={this.state.currentCenter.lat}
-                    lng={this.state.currentCenter.lng}
-                    text="Next Location!"
-                />
+                center={this.state.currentCenter}>
+                <img
+                  lat={this.state.currentCenter.lat}
+                  lng={this.state.currentCenter.lng}
+                  src={"https://cc-assignment02-bucket.s3.amazonaws.com/images/Cafe+Crusaders+Logo.png"}
+                  alt="ERROR: Marker could not be loaded!"
+                  height='40'
+                  width='40'/>
                 </GoogleMapReact>
-                <LocationSearchBox></LocationSearchBox>
+
+                <LocationSearchBox moveMap={this.moveMap}></LocationSearchBox>
             </div>
         </Fragment>
-      
     );
   }
 }
