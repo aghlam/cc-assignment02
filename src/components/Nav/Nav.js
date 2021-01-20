@@ -16,7 +16,7 @@ function Navigation() {
             <Navbar bg='dark'>
                 <Navbar.Brand href='#home' className='text-light'>
                     <img
-                        src='/icons/coffeeCup.svg'
+                        src='https://cc-assignment02-bucket.s3.amazonaws.com/images/coffeeCup.svg'
                         alt='logo'
                         width='40'
                         height='35'
