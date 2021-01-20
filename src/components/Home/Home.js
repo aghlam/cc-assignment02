@@ -1,6 +1,5 @@
 import React from 'react'
 import './Home.css'
-import background from '../../background/home-background.jpeg'
 import { Container, Row, Col } from 'react-bootstrap';
 
 
