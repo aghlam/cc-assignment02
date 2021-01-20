@@ -1,6 +1,8 @@
 import React from 'react'
 import './Home.css'
 import { Container, Row, Col } from 'react-bootstrap';
+import SearchBar from '../GeneralSearchBar/SearchBar'
+
 
 
 function Home() {
@@ -8,24 +10,22 @@ function Home() {
 
     return (
         <div>
-        <Container fluid>
-            <Row className='my-row row-background' >
-                <Col>
-                    column 1
-                </Col>
-                <Col>
-                    column 2
-                </Col>
-                <Col>
-                    column 3
-                </Col>
-            </Row>
-        </Container>
-            {/* <div style={{backgroundImage: `url(${background})`}}>
+            <Container fluid className='row-background'>
 
-            <h2>Main Page</h2>
-            </div> */}
-
+                <Row className='home-row align-items-center' >
+                    <Col>
+                        <h1 className='display-1' >Cafe Crusaders</h1>
+                        <h4 className='display-4'>Search for your desired cup of coffee</h4>
+                    </Col>
+                </Row>
+                <Row className='home-row align-items-center'>
+                    <Col md={3} />
+                    <Col sm={12} md={6}>
+                        <SearchBar />
+                    </Col>
+                    <Col md={3} />
+                </Row>
+            </Container>
         </div>
     );
 }

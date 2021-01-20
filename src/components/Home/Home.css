@@ -1,5 +1,6 @@
-.my-row {
-    height: 300px
+.home-row {
+    height: 400px;
+    border: 1px solid red;
 }
 
 .row-background {
