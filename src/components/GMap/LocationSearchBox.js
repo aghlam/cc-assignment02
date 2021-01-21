@@ -4,6 +4,22 @@
 import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 
+const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY
+const SECRET_KEY = process.env.REACT_APP_AWS_SECRET_KEY
+
+//Creation of logger for LocationSearchBox.js
+const { Logger } = require('aws-cloudwatch-log-browser')
+const config = {
+    logGroupName: 'cc-a2-logger', 
+	logStreamName: 'cc-a2-map-stream', 
+	region: 'us-east-1', 
+	accessKeyId: ACCESS_KEY, 
+	secretAccessKey: SECRET_KEY, 
+	uploadFreq: 2000,
+	local: false
+}
+const logger = new Logger(config)
+
 const searchOptions = {
     location: new window.google.maps.LatLng(-37.815570,144.962960),
     radius: 2000,
@@ -36,6 +52,9 @@ class LocationSearchBox extends Component {
 
         //Then moving the lat/lng location from the parent component GMap, hence moving the map.
         this.props.moveMap();
+        
+        //Logs to relevant Log Stream
+        logger.log("Location Searched: " + address + " with placeId: " + localStorage.getItem('placeID') + " and coordinates: " + localStorage.getItem('currentPos'));
     };
 
     render() {

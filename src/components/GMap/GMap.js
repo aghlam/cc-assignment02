@@ -3,13 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import LocationSearchBox from './LocationSearchBox';
 import './GMap.css'
 
-//DEPRECIATED MARKER + HTML (As child of GoogleMapReact) BELOW
-//const LatLngMarker = ({ text }) => <div>{text}</div>; 
-// <LatLngMarker
-// lat={this.state.currentCenter.lat}
-// lng={this.state.currentCenter.lng}
-// text="Next Location!"
-// />
+const API_KEY = process.env.REACT_APP_GCLOUD_API_KEY
 
 class GMap extends Component {
   constructor(props) {
@@ -50,7 +44,7 @@ class GMap extends Component {
 
             <div id="map">
                 <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyBr0tSPg4hwyEsxxhrRoNuBMFeLh8TQSHU',
+                bootstrapURLKeys={{ key: API_KEY,
                                     libraries: 'places' }}
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
