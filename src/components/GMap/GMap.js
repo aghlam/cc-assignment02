@@ -11,6 +11,8 @@ import './GMap.css'
 // text="Next Location!"
 // />
 
+const API_KEY = process.env.REACT_APP_GCLOUD_API_KEY
+
 class GMap extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +52,7 @@ class GMap extends Component {
 
             <div id="map">
                 <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyBr0tSPg4hwyEsxxhrRoNuBMFeLh8TQSHU',
+                bootstrapURLKeys={{ key: API_KEY,
                                     libraries: 'places' }}
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
