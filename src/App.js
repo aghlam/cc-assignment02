@@ -6,6 +6,7 @@ import './App.css';
 import Nav from './components/Nav/Nav'
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
+import GMap from './components/GMap/GMap'
 
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
-          <Route path='/' component={Home} />
-          <Route path='/' component={Login} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={Login} />
+          <Route path='/find' component={GMap} />
         </Switch>
       </div>
     </Router>
