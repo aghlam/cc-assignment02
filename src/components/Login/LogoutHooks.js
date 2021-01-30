@@ -24,7 +24,7 @@ const LogoutHooks = () => {
   })
 
   return (
-    <button type='button' class="btn btn-outline-light" onClick={signOut}>
+    <button type='button' className="btn btn-outline-light" onClick={signOut}>
       <img src="https://cc-assignment02-bucket.s3.amazonaws.com/images/google.svg" height='40' width='40' alt="google login" className="icon"></img>
       <span className="buttonText">Sign out</span>
     </button>

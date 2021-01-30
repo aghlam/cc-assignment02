@@ -37,7 +37,7 @@ function LoginHooks() {
   });
 
   return (
-    <button type='button' class="btn btn-outline-light" onClick={signIn} >
+    <button type='button' className="btn btn-outline-light" onClick={signIn} >
       <img src="https://cc-assignment02-bucket.s3.amazonaws.com/images/google.svg" height='40' width='40' alt="google login" className="icon" />
       <span className="buttonText">Sign in with Google</span>
     </button>
