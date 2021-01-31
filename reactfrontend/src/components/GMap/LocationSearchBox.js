@@ -41,7 +41,7 @@ class LocationSearchBox extends Component {
     handleSelect = (address: string, placeId: ?string, suggestion: ?object) => {
         //Placing both the { lat, lng } AND placeId of the selected location into local storage
         geocodeByAddress(address)
-            .then(results => getLatLng(results[0]))
+            .then(results => {getLatLng(results[0]); const address = results[0].formatted_address; console.log("Address:",address);})
             .then(latLng => {localStorage.setItem('currentPos', JSON.stringify(latLng))})
             .catch(error => console.error('Error:', error));
         localStorage.setItem('placeID', placeId);
