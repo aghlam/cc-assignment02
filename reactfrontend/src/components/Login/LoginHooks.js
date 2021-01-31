@@ -11,7 +11,6 @@ function LoginHooks() {
   
 
   const onSuccess = (res) => {
-    console.log('Login Success: currentUser:', res.profileObj);
     localStorage.setItem('googleUser', res.profileObj.name)
     localStorage.setItem('isSignedIn', true)
     alert(
