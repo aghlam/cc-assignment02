@@ -32,6 +32,11 @@ class LocationSearchBox extends Component {
         this.state = {
             address: '',
         };
+        var defaultCoords = {
+            lat: -37.815570,
+            lng: 144.962960,
+        };
+        localStorage.setItem('currentPos', JSON.stringify(defaultCoords));
     }
 
     handleChange = address => {

@@ -2,7 +2,7 @@
   "name": "reactfrontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://localhost:5000/",
+  "proxy": "https://ec2-13-54-150-140.ap-southeast-2.compute.amazonaws.com:5000/",
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.11.1",
     "@testing-library/jest-dom": "^5.11.9",
