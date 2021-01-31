@@ -1,0 +1,15 @@
+Resources:
+  CafesList:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: cafesList
+      AttributeDefinitions:
+        - AttributeName: cafe_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: cafe_id
+          KeyType: HASH
+      # Set the capacity
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
