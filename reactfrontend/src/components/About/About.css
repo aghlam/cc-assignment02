@@ -1,0 +1,13 @@
+.about-row {
+    height: 100vh;
+}
+
+.about-background {
+    text-align: center;
+    background-image: url("https://cc-assignment02-bucket.s3.amazonaws.com/images/about-background.jpg");
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,13 @@
+.home-row {
+    height: 400px;
+}
+
+.row-background {
+    text-align: center;
+    background-image: url("https://cc-assignment02-bucket.s3.amazonaws.com/images/home-background.jpeg");
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}
