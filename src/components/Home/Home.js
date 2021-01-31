@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import SearchBar from '../GeneralSearchBar/SearchBar'
 
 
-
 function Home() {
 
 
@@ -24,6 +23,8 @@ function Home() {
                         <SearchBar />
                     </Col>
                     <Col md={3} />
+                </Row>
+                <Row>
                 </Row>
             </Container>
         </div>
