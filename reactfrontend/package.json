@@ -1,8 +1,7 @@
 {
-  "name": "cc-assignment02",
+  "name": "reactfrontend",
   "version": "0.1.0",
   "private": true,
-
   "proxy": "https://localhost:5000/",
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.11.1",
