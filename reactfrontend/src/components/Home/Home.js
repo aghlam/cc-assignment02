@@ -27,6 +27,7 @@ function Home() {
                 <Row>
                 </Row>
             </Container>
+
         </div>
     );
 }
