@@ -26,6 +26,7 @@ function Navigation() {
                 </Navbar.Brand>
                 <Nav.Link href='/' className='text-light'>Home</Nav.Link>
                 <Nav.Link href='/about' className='text-light'>About Us</Nav.Link>
+                <Nav.Link href='/find' className='text-light'>Find a Cafe</Nav.Link>
                 {isSignedIn ? <LogoutHooks onClick={ setStatus } /> :  <LoginHooks inline onClick={ setStatus } />}
             </Navbar>
         </div>

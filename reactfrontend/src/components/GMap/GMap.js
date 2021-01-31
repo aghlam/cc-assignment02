@@ -17,6 +17,7 @@ class GMap extends Component {
   }
 
   moveMap = () => {
+    console.log("moveMap currentPos: ",localStorage.getItem('currentPos'));
     this.setState(prevState => ({
       currentCenter: {
         ...prevState.currentCenter,
